@@ -195,6 +195,12 @@ const colors = {
     background: '#DBF4FD',
     border: '#3BC0F2',
     text: '#3BC0F2'
+  },
+  breadcrumb: {
+    link: '#676767',
+    linkHover: '#0a84ae',
+    current: '#333',
+    separator: '#A8A8A8'
   }
 }
 

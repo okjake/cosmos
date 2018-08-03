@@ -61,6 +61,7 @@
     "react-chromatic": "0.8.4",
     "react-docgen": "2.21.0",
     "react-docgen-displayname-handler": "2.1.0",
+    "react-router-dom": "4.3.1",
     "read-pkg": "4.0.1",
     "svgo": "1.0.5"
   }
