@@ -16,10 +16,10 @@ const BreadcrumbItem = styled.li`
   &:not(:last-child)::after {
     content: ' ';
     display: inline-block;
-    vertical-align: bottom;
-    width: 12px;
-    height: 12px;
-    margin: 0 ${spacing.small} ${spacing.xxsmall} ${spacing.small};
+    vertical-align: middle;
+    width: ${fonts.size.small};
+    height: ${fonts.size.small};
+    margin: 0 ${spacing.small};
     mask: ${Icon.getDataUrl('chevron-right-fill', 12)};
     background-color: ${colors.breadcrumb.separator};
   }

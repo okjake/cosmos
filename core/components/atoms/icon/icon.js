@@ -48,7 +48,7 @@ Icon.Element = styled.i`
 
 const Svg = styled.svg`
   display: inline-block;
-  vertical-align: bottom;
+  vertical-align: top;
   path {
     fill: ${props => props.color};
   }
