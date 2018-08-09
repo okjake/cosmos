@@ -201,6 +201,13 @@ const colors = {
     linkHover: '#0a84ae',
     current: '#333',
     separator: '#A8A8A8'
+  },
+  dropdown: {
+    background: '#fff',
+    link: '#676767',
+    linkHover: '#333',
+    linkBackgroundHover: '#F3F4F4',
+    shadow: 'rgba(0,0,0,0.20)'
   }
 }
 

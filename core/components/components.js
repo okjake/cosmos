@@ -16,7 +16,6 @@ import Box from './atoms/_box'
 /* atoms */
 import Avatar from './atoms/avatar'
 import Badge from './atoms/badge'
-import Breadcrumb from './atoms/breadcrumb'
 import Button from './atoms/button'
 import Checkbox from './atoms/checkbox'
 import Code from './atoms/code'
@@ -40,8 +39,10 @@ import Tooltip from './atoms/tooltip'
 /* molecules */
 import Alert from './atoms/alert'
 import AvatarBlock from './molecules/avatar-block'
+import Breadcrumb from './molecules/breadcrumb'
 import ButtonGroup from './molecules/button-group'
 import Dialog from './molecules/dialog'
+import DropdownNavigation from './molecules/dropdown-navigation'
 import EmptyState from './molecules/empty-state'
 import Form from './molecules/form'
 import FormGroup from './molecules/form-group'
@@ -68,6 +69,7 @@ export {
   Checkbox,
   Code,
   Dialog,
+  DropdownNavigation,
   EmptyState,
   Form,
   FormGroup,
