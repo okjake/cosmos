@@ -25,7 +25,7 @@ storiesOf('Breadcrumb', module).add('three items', () => (
     <Example title="three items">
         <Breadcrumb items={[
             { href: '/', pageTitle: 'Root' },
-            { href: '/parent', pageTitle: 'Parent' },
+            { href: '/p', pageTitle: 'Parent' },
             { pageTitle: 'Current Page' }
         ]} />
     </Example>
@@ -35,8 +35,8 @@ storiesOf('Breadcrumb', module).add('four items', () => (
     <Example title="four items">
         <Breadcrumb items={[
             { href: '/', pageTitle: 'Root' },
-            { href: '/grandparent', pageTitle: 'Grandparent' },
-            { href: '/parent', pageTitle: 'Parent' },
+            { href: '/gp', pageTitle: 'Grandparent' },
+            { href: '/gp/p', pageTitle: 'Parent' },
             { pageTitle: 'Current Page' }
         ]} />
     </Example>
@@ -47,9 +47,9 @@ storiesOf('Breadcrumb', module).add('five items', () => (
     <Example title="five items">
         <Breadcrumb items={[
             { href: '/', pageTitle: 'Root' },
-            { href: '/great-grandparent', pageTitle: 'Great Grandparent' },
-            { href: '/grandparent', pageTitle: 'Grandparent' },
-            { href: '/parent', pageTitle: 'Parent' },
+            { href: '/ggp', pageTitle: 'Great Grandparent' },
+            { href: '/ggp/gp', pageTitle: 'Grandparent' },
+            { href: '/ggp/gp/p', pageTitle: 'Parent' },
             { pageTitle: 'Current Page' }
         ]} />
     </Example>
@@ -59,10 +59,10 @@ storiesOf('Breadcrumb', module).add('more than five items', () => (
     <Example title="more than five items">
         <Breadcrumb items={[
             { href: '/', pageTitle: 'Root' },
-            { href: '/great-great-grandparent', pageTitle: 'Great Great Grandparent' },
-            { href: '/great-grandparent', pageTitle: 'Great Grandparent' },
-            { href: '/grandparent', pageTitle: 'Grandparent' },
-            { href: '/parent', pageTitle: 'Parent' },
+            { href: '/gggp', pageTitle: 'Great Great Grandparent' },
+            { href: '/gggp/ggp', pageTitle: 'Great Grandparent' },
+            { href: '/gggp/ggp/gp', pageTitle: 'Grandparent' },
+            { href: '/gggp/ggp/gp/p', pageTitle: 'Parent' },
             { pageTitle: 'Current Page' }
         ]} />
     </Example>

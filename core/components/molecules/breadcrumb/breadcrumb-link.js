@@ -4,11 +4,13 @@ import { fonts, colors } from '@auth0/cosmos-tokens'
 import Link from '../../atoms/link'
 
 const BreadcrumbLink = styled(Link)`
-  text-decoration: none;
   font-size: ${fonts.size.small};
   font-weight: ${fonts.weight.medium};
   color: ${colors.breadcrumb.link};
-
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  
   &:hover,
   &:focus {
     color: ${colors.breadcrumb.linkHover};

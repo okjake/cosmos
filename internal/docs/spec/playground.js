@@ -12,11 +12,16 @@ import { getDefaultsFromCode, stripDefaultsFromDocs } from './get-defaults-from-
 
 const Container = styled.div`
   margin: ${spacing.medium} 0;
+  position: relative;
+  z-index: 0;
 
   & .react-live {
     position: relative;
   }
+
   & .react-live-preview {
+    position: relative;
+    z-index: 1;
     white-space: normal;
     border: 1px solid ${colors.base.grayLight};
     border-bottom-width: ${props => (props.codeVisible ? 0 : '1px')};

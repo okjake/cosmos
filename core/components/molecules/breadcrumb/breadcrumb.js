@@ -65,10 +65,20 @@ Breadcrumb.propTypes = {
   /** Array of page link items **/
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      ...BreadcrumbLink.propTypes,
-      pageTitle: PropTypes.string.isRequired
+      /** title of page for display */
+      pageTitle: PropTypes.string.isRequired,
+      /** URL to follow */
+      href: PropTypes.string,
+      /** specifies where to open the linked document */
+      target: PropTypes.oneOf(['_blank', '_self', '_parent', '_top']),
+      /** function to be called on click */
+      onClick: PropTypes.func
     })
   )
+}
+
+Breadcrumb.defaultProps = {
+  items: []
 }
 
 export default Breadcrumb

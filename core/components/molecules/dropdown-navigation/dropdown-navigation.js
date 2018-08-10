@@ -22,7 +22,7 @@ import { colors, misc, spacing } from '@auth0/cosmos-tokens';
 const DropdownNavigationMenu = styled.div`
   position: absolute;
   background: ${colors.dropdown.background};
-  margin-top: ${spacing.small};
+  margin-top: ${spacing.medium};
   margin-left: -${spacing.medium};
   box-shadow: 0 0 ${spacing.xsmall} ${colors.dropdown.shadow};
   border-radius: ${misc.radius};
@@ -33,7 +33,7 @@ const DropdownNavigationMenu = styled.div`
     clip: rect(0 0 0 0); 
     height: 1px;
     width: 1px; 
-    margin: -1px; 
+    margin: -1px;
   `}
 
   &::before {
@@ -71,6 +71,7 @@ const DropdownNavigationList = styled.ol`
 const DropdownNavigationWrapper = styled.div`
   display: inline-block;
   cursor: pointer;
+  position: relative;
 
   & > a {
     color: ${colors.breadcrumb.link}

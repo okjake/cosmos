@@ -42,13 +42,13 @@ Icon.getDataUrl = (name, size) => {
 
 Icon.Element = styled.i`
   display: inline-block;
-  vertical-align: baseline;
+  vertical-align: middle;
   line-height: 1
 `
 
 const Svg = styled.svg`
   display: inline-block;
-  vertical-align: top;
+  vertical-align: middle;
   path {
     fill: ${props => props.color};
   }

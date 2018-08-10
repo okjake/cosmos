@@ -10,7 +10,7 @@ import BreadcrumbIcon from './breadcrumb-icon'
 const BreadcrumbItemContainer = styled.li`
   display: inline-block;
   white-space: nowrap;
-
+  
   &:not(:last-child)::after {
     content: ' ';
     display: inline-block;
