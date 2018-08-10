@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import DropdownNavigationItem from './dropdown-navigation-item'
-import Link from '../../atoms/link'
 import { colors, misc, spacing } from '@auth0/cosmos-tokens';
 
 /*
@@ -20,9 +19,9 @@ import { colors, misc, spacing } from '@auth0/cosmos-tokens';
   this way they receive focus as though visible
   https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 */
-const DropdownMenu = styled.div`
-  background: ${colors.dropdown.background};
+const DropdownNavigationMenu = styled.div`
   position: absolute;
+  background: ${colors.dropdown.background};
   margin-top: ${spacing.small};
   margin-left: -${spacing.medium};
   box-shadow: 0 0 ${spacing.xsmall} ${colors.dropdown.shadow};
@@ -38,29 +37,38 @@ const DropdownMenu = styled.div`
   `}
 
   &::before {
-    position: absolute;
     content: '';
+    position: absolute;
     top: -${spacing.xsmall};
     left: ${spacing.medium};
-    left: calc(${spacing.medium} - (${spacing.xsmall} / 2));
     background-color: ${colors.dropdown.background};
     padding: ${spacing.xsmall};
     transform: rotate(45deg);
-    box-shadow: -${spacing.xxsmall} -${spacing.xxsmall} ${spacing.xxsmall} rgba(0,0,0,0.05);
+    box-shadow: -${spacing.xxsmall} -${spacing.xxsmall} ${spacing.xxsmall} rgba(0, 0, 0, 0.05);
   }
 `
 
-const DropdownList = styled.ul`
+/*
+  Ordered list to contain dropdown navigation links
+  The order of links is reversed using flexbox to maintain
+  the correct semantic order in the DOM
+
+  The empty transform is necessary to create a new stacking
+  context and sandbox the z-index changes in the child items
+*/
+const DropdownNavigationList = styled.ol`
   background: ${colors.dropdown.background};
   list-style: none;
-  position: relative;
-
-  li {
-    background: ${colors.dropdown.background};
-  }
+  display: flex;
+  flex-direction: column-reverse;
+  transform: translate(0);
 `
 
-const InlineDiv = styled.div`
+/*
+  Styles for displaying the dropdown trigger element
+  Will not need to be included in a generic dropdown
+*/
+const DropdownNavigationWrapper = styled.div`
   display: inline-block;
   cursor: pointer;
 
@@ -84,7 +92,6 @@ class DropdownNavigation extends Component {
     this.handleDocumentClick = this.handleDocumentClick.bind(this)
   }
 
-  // Logic to dismiss the menu on click outside
   componentDidMount() {
     document.addEventListener('mousedown', this.handleDocumentClick)
   }
@@ -93,6 +100,7 @@ class DropdownNavigation extends Component {
     document.removeEventListener('mousedown', this.handleDocumentClick)
   }
 
+  // Logic to dismiss the menu on click outside
   handleDocumentClick(event) {
     if (this.state.open && !this.menuRef.current.contains(event.target)) {
       this.setState({ open: false })
@@ -115,29 +123,28 @@ class DropdownNavigation extends Component {
     const { items, trigger } = this.props;
 
     return (
-      <InlineDiv innerRef={this.menuRef}>
-        <a tabIndex={-1} onClick={this.handleTriggerClick}>
-          {trigger}
-        </a>
+      <DropdownNavigationWrapper innerRef={this.menuRef}>
+        <a tabIndex={-1} onClick={this.handleTriggerClick}>{trigger}</a>
 
-        <DropdownMenu
+        <DropdownNavigationMenu
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
-          open={this.state.open}
-        >
-          <DropdownList role="menu">
+          open={this.state.open}>
+
+          <DropdownNavigationList role="menu">
             {items.map(item => (
               <DropdownNavigationItem key={item.href} {...item} />
             ))}
-          </DropdownList>
-        </DropdownMenu>
-      </InlineDiv>
+          </DropdownNavigationList>
+
+        </DropdownNavigationMenu>
+      </DropdownNavigationWrapper>
     )
   }
 }
 
 DropdownNavigation.defaultProps = {
-  trigger: '...'
+  trigger: 'Menu'
 }
 
 DropdownNavigation.propTypes = {
@@ -146,10 +153,9 @@ DropdownNavigation.propTypes = {
 
   /** array of Links **/
   items: PropTypes.arrayOf(
-    PropTypes.shape({
-      ...Link.propTypes,
-      pageTitle: PropTypes.string.isRequired
-    })
+    PropTypes.shape(
+      DropdownNavigationItem.propTypes
+    )
   )
 }
 

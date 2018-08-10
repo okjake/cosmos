@@ -13,7 +13,7 @@ Basic usage
 
 ```jsx
   <Breadcrumb items={[
-    { href: '/', pageTitle: 'Home' },
+    { href: '/', pageTitle: 'Root' },
     { href: '/parent', pageTitle: 'Parent' },
     { pageTitle: 'Current Page' }
   ]} />
@@ -31,7 +31,7 @@ Deep hierarchies will collapse into Dropdown Navigation
 
 ```jsx
   <Breadcrumb items={[
-    { href: '/', title: 'Home' },
+    { href: '/', pageTitle: 'Root' },
     { href: '/great-great-grandparent', pageTitle: 'Great Great Grandparent' },
     { href: '/great-grandparent', pageTitle: 'Great Grandparent' },
     { href: '/grandparent', pageTitle: 'Grandparent' },

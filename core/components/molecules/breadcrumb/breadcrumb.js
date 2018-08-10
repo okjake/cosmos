@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Link from '../../atoms/link'
-import BreadcrumbItem, { BreadcrumbItemContainer } from './breadcrumb-item'
-import DropdownNavigation from '../dropdown-navigation'
+import BreadcrumbItem from './breadcrumb-item'
+import BreadcrumbLink from './breadcrumb-link'
+import BreadcrumbDropdownNavigation from './breadcrumb-dropdown-navigation'
 
 // Config: # items before collapsing the breadcrumb
 const __MAX_ITEMS__ = 4
@@ -22,8 +22,8 @@ const Breadcrumb = props => {
     <BreadcrumbItem key={item.pageTitle} {...item} />
   )
 
-  // If there's only one, render it as <- Back to Page
-  if (items.length === 1) {
+  // If there's only one, or parent -> child, render it as <- Back to Page
+  if (items.length <= 2) {
     const item = {
       ...items[0],
       icon: __SINGLE_ITEM_ICON__,
@@ -43,17 +43,10 @@ const Breadcrumb = props => {
   const collapsedItems = items.slice(1, __SLICE_END__)
   const secondaryItems = items.slice(__SLICE_END__)
 
-  // Build the DropdownNavigation
-  const dropdownItem = (
-    <BreadcrumbItemContainer key="_dropdown-navigation">
-      <DropdownNavigation items={collapsedItems} />
-    </BreadcrumbItemContainer>
-  )
-
   return (
     <Nav>
       {principalItems.map(createBreadcrumbItem)}
-      {dropdownItem}
+      <BreadcrumbDropdownNavigation items={collapsedItems} />
       {secondaryItems.map(createBreadcrumbItem)}
     </Nav>
   )
@@ -69,10 +62,10 @@ const Nav = props => (
 )
 
 Breadcrumb.propTypes = {
-  /** Array of Links **/
+  /** Array of page link items **/
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      ...Link.propTypes,
+      ...BreadcrumbLink.propTypes,
       pageTitle: PropTypes.string.isRequired
     })
   )
