@@ -7,8 +7,6 @@
 
 ---
 
-
-
 ## Usage
 
 A breadcrumb is a hierarchical representation of the page within the application. Breadcrumbs provide a trail for the user to follow back to the starting or entry point.
@@ -36,7 +34,7 @@ Used when the page is part of more than two levels in navigation.
 
 Used when there is a single navigation level on detail pages. It provides a shortcut back to the parent index/list page from the detail page. For example: it can be used on a User detail page to go back to the Users list page. The link displays the name of the parent section: “Users”, “Applications”.
 
-```jsx
+```js
   <Breadcrumb items={[
     { href: '/', pageTitle: 'Applications' },
     { pageTitle: 'Current Page' }
@@ -47,7 +45,7 @@ Used when there is a single navigation level on detail pages. It provides a shor
 
 When pages are deeply nested, the Breadcrumb collapses into an accessible Dropdown menu automatically.
 
-```jsx
+```js
   <Breadcrumb items={[
     { href: '/', pageTitle: 'Root' },
     { href: '/path', pageTitle: 'Great Great Grandparent' },
