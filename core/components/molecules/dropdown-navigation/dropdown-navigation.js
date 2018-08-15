@@ -59,9 +59,6 @@ const DropdownNavigationMenu = styled.div`
 const DropdownNavigationList = styled.ol`
   background: ${colors.dropdown.background};
   list-style: none;
-  display: flex;
-  flex-direction: column-reverse;
-  transform: translate(0);
 `
 
 /*

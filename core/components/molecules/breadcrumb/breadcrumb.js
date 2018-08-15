@@ -2,13 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import BreadcrumbItem from './breadcrumb-item'
-import BreadcrumbLink from './breadcrumb-link'
 import BreadcrumbDropdownNavigation from './breadcrumb-dropdown-navigation'
 
 // Config: # items before collapsing the breadcrumb
 const __MAX_ITEMS__ = 4
 // Precomputed param for slice operations
-const __SLICE_END__ = -1 * (__MAX_ITEMS__ - 1);
+const __SLICE_END__ = -1 * (__MAX_ITEMS__ - 1)
 // Config: Appended to single items
 const __SINGLE_ITEM_PREFIX__ = 'Back to'
 // Config: Icon shown for single items

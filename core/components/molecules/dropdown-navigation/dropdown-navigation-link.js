@@ -17,17 +17,6 @@ const DropdownNavigationLink = styled(Link)`
     color: ${colors.dropdown.linkHover};
     background-color: ${colors.dropdown.linkBackgroundHover};
   }
-
-  ${/*
-    work around an issue with focus state being partially obscured by hover state
-    this is necessary because of the reversed list order and doesn't need to be
-    included in a general dropdown abstraction 
-    If this is removed the empty transform in DropdownList can go
-  */ ''}
-  &:focus {
-    display: relative;
-    z-index: 1;
-  }
 `
 
 DropdownNavigationLink.propTypes = {
